@@ -15,8 +15,12 @@ Comments.init(
             type: DataTypes.DATEONLY,
             allowNull: false,
         },
-        text: {
+        comment: {
             type: DataTypes.STRING,
+            allowNull: false,
+        },
+        post_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: `post`,
