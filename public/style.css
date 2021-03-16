@@ -8,7 +8,11 @@ body {
     background-color: #393D3F;
 }
 
-#heading {
+#heading, .btn {
     background-color: black;
     border: solid 2px #96F550;
+    color: #96F550;
+}
+
+.btn {
 }
