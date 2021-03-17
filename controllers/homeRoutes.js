@@ -8,6 +8,10 @@ router.get(`/login`, async (req,res) => {
     res.render(`login`)
 })
 
+router.get(`/newUser`, async (req,res) => {
+    res.render(`newUser`)
+})
+
 
 
 module.exports = router;
