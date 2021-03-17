@@ -1,0 +1,18 @@
+/* Global Font */
+* {
+    font-family: 'Orbitron', sans-serif;
+    color: #96F550;
+}
+
+body {
+    background-color: #393D3F;
+}
+
+#heading, .btn {
+    background-color: black;
+    border: solid 2px #96F550;
+    color: #96F550;
+}
+
+.btn {
+}
