@@ -3,24 +3,29 @@
     <h3>Please fill in the fields to create your account:</h3>
 </div>
 
+<h3 id="tryAgain" style="color: red;"></h3>
+
 <div class="row">
     <div class="col-4 my-3">
         <div class="input-group mb-3">
-            <form>
+            <form id="newUserForm">
                 <div class="mb-3">
                     <label for="name" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="name" placeholder="user1234">
+                    <input type="text" class="form-control" id="name" placeholder="user1234" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="user1234@email.com">
+                    <input type="email" class="form-control" id="email" placeholder="user1234@email.com" required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="myPassword">
+                    <input type="password" class="form-control" id="password" placeholder="myPassword" required>
+                    <p style="font-size: small;">Must be at least 8 characters</p>
                 </div>
                 <button type="submit" class="btn">Submit</button>
             </form>
         </div>
     </div>
 </div>
+
+<script src="./js/newUser.js"></script>
