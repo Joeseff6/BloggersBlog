@@ -22,17 +22,15 @@ router.get(`/posts`, async (req,res) => {
             res.render(`notLogged`);
         } else {
             const postData = await Post.findAll({
-                include: [
+                include: 
                     {
                         model: User,
                         attributes: [`username`],
                     },
-                ],
-            })
+            });
             const posts = postData.map(post => {
                 return post.get({plain: true});
-            })
-            console.log(posts)
+            });
             res.render(`posts`, {
                 posts,
                 loggedIn: req.session.loggedIn,
@@ -44,8 +42,30 @@ router.get(`/posts`, async (req,res) => {
     }
 });
 
+router.get(`/:id`, async (req,res) => {
+    try {
+        if (!req.session.loggedIn) {
+            res.render(`notLogged`);
+        } else {
+            const postData = await Post.findByPk(req.params.id, {
+                include:
+                    {
+                        model: User,
+                        attributes: [`username`],
+                    },
+            });
+            const posts = postData.get({plain: true});
+            console.log(posts)
+            res.render(`view`, { posts, loggedIn: req.session.loggedIn });
+        };
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 router.get(`/newPost`, async (req,res) => {
-    res.render(`newPost`);
+    res.render(`newPost`, {loggedIn: req.session.loggedIn});
 });
 
 
