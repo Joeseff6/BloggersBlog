@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col d-flex justify-content-center">
+        <a class="btn" id="newPostBtn" href="/newPost">New post</a>
+    </div>
+</div>
+
+{{#unless posts}}
+<div class="row text-center postRow">
+    <div class="col-9 box m-auto">
+        <h2 class="text-black">There are no posts yet. Write the first post!</h2>
+    </div>
+</div>
+{{/unless}}
+
+{{#if posts}}
+{{#each posts as |post|}}
+<div class="row text-center postRow mb-3">
+    <div class="col-9 box m-auto">
+        <div class="row">
+            <div class="mb-1">
+                <div class="postHeader">
+                    <h2 class="text-black postTitle">Post title: {{post.title}}</h2>
+                    <p class="text-black mb-0">Posted by: {{post.user.username}} on {{post.posted_date}}</p>
+                </div>
+                <p class="text-black postText mb-0" style="text-align: left;">{{post.text}}</p>
+                <button type="submit" class="btn my-1" style="width: 150px;">View Post</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+
+{{/if}}
+
+
+
+<script src="./js/posts.js"></script>
