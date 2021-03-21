@@ -14,5 +14,37 @@ body {
     color: #96F550;
 }
 
-.btn {
+#newPostBtn {
+    position: relative;
+    top: 25px;
+}
+
+.box {
+    background-color: #96F550;
+    border: black 2px solid;
+    border-radius: 15px;
+    color: black;
+}
+
+#postbox, .postRow {
+    position: relative;
+    top: 50px;
+}
+
+.text-black {
+    color: black;
+}
+
+#postText, #title, .postText {
+    border: solid 2px black;
+    background-color: #d0ffaf;
+}
+
+
+.navbar-toggler-icon {
+    background-color: #d0ffaf;
+}
+
+.navbar-toggler {
+    background-color: #96F550;
 }
