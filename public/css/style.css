@@ -48,3 +48,10 @@ body {
 .navbar-toggler {
     background-color: #96F550;
 }
+
+@media (min-width: 746px) {
+    .postHeader {
+        display: flex;
+        justify-content: space-between;
+    }
+}
