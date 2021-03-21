@@ -15,23 +15,18 @@
 {{#if posts}}
 {{#each posts as |post|}}
 <div class="row text-center postRow mb-3">
-    <div class="col-9 box m-auto">
+    <div class="col-sm-9 box m-auto">
         <div class="row">
             <div class="mb-1">
                 <div class="postHeader">
-                    <h2 class="text-black postTitle">Post title: {{post.title}}</h2>
+                    <h3 class="text-black postTitle">Title: {{post.title}}</h3>
                     <p class="text-black mb-0">Posted by: {{post.user.username}} on {{post.posted_date}}</p>
                 </div>
                 <p class="text-black postText mb-0" style="text-align: left;">{{post.text}}</p>
-                <button type="submit" class="btn my-1" style="width: 150px;">View Post</button>
+                <a class="btn" id="viewBtn" href="/{{post.id}}">View Post</a>
             </div>
         </div>
     </div>
 </div>
 {{/each}}
-
 {{/if}}
-
-
-
-<script src="./js/posts.js"></script>
