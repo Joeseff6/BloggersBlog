@@ -1,5 +1,6 @@
 const router = require(`express`).Router();
-const { User } = require(`../../models`);
+const { User, Post } = require(`../../models`);
+
 
 router.post(`/`, async (req,res) => {
     try {
@@ -8,11 +9,13 @@ router.post(`/`, async (req,res) => {
             email: req.body.email,
             password: req.body.password,
         });
+        req.session.userId = userData.dataValues.id;
         req.session.save(() => {
             req.session.loggedIn = true;
-
             res.status(200).json(userData);
         });
+        console.log(req.session);
+
     } catch (err) {
         console.log(err)
         res.status(500).json(err);
@@ -27,6 +30,8 @@ router.post('/login', async (req, res) => {
             email: req.body.email,
         },
         });
+        
+        req.session.userId = userData.dataValues.id;
 
         if (!userData) {
         res
@@ -46,11 +51,11 @@ router.post('/login', async (req, res) => {
 
         req.session.save(() => {
         req.session.loggedIn = true;
-
         res
             .status(200)
             .json({ user: userData, message: 'You are now logged in!' });
         });
+        console.log(req.session);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -67,5 +72,31 @@ router.post('/logout', (req, res) => {
         res.status(404).end();
     }
 });
+
+// Create new post
+router.post(`/newPost`, (req,res) => {
+    try {
+        const date = new Date();
+        const posted_date = `${date.getMonth()+1}` 
+        + `/` 
+        + `${date.getDate()}`
+        + `/` 
+        + `${date.getFullYear()}`;
+        const postData = Post.create({
+            title: req.body.title,
+            text: req.body.text,
+            posted_date: posted_date,
+            user_id: req.session.userId
+        })
+    
+        res.status(200).json(postData);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+
+});
+
+
 
 module.exports = router;
