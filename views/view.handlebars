@@ -1,4 +1,4 @@
-<div class="row text-center postRow mb-3">
+<div class="row text-center postRow">
     <div class="col-sm-9 box m-auto">
         <div class="row">
             <div class="mb-1">
@@ -7,8 +7,22 @@
                     <p class="text-black mb-0">Posted by: {{posts.user.username}} on {{posts.posted_date}}</p>
                 </div>
                 <p class="text-black postText mb-0" style="text-align: left;">{{posts.text}}</p>
-                <a class="btn" id="viewBtn" href="#">Comment</a>
+                <a class="btn" id="commentBtn" href="#">Comment</a>
             </div>
         </div>
     </div>
 </div>
+<div class="row position-relative text-center" id="commentForm">
+    <div class="col-sm-9 box m-auto">
+        <div class="row">
+            <div class="mb-1">
+                <form id="postForm">
+                    <textarea class="form-control my-1" id="commentText" rows="4" placeholder="Write comment here..."></textarea>
+                    <button type="submit" class="btn" style="width: 150px;">Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/newComment.js"></script>

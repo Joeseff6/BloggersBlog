@@ -16,8 +16,8 @@ const newUserHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/posts');
         } else {
-            document.getElementById(`tryAgain`).innerHTML = `Something went wrong. 
-            Please check your information.`
+            document.getElementById(`tryAgain`).innerHTML = `Error: email is already
+            in use, or password is less than 8 characters.`
         }
     };
 };

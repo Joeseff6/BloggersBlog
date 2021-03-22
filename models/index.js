@@ -17,11 +17,11 @@ Comments.belongsTo(User, {
 });
 
 Post.hasMany(Comments, {
-    foreignKey: `text`,
+    foreignKey: `post_id`,
 })
 
 Comments.belongsTo(Post, {
-    foreignKey: `text`,
+    foreignKey: `post_id`,
     onDelete: `CASCADE`,
 });
 

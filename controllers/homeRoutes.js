@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post } = require(`../models`)
+const { User, Post, Comments } = require(`../models`)
 
 router.get(`/`, async (req,res) => {
 
@@ -42,20 +42,31 @@ router.get(`/posts`, async (req,res) => {
     }
 });
 
-router.get(`/:id`, async (req,res) => {
+router.get(`/posts/:id`, async (req,res) => {
     try {
+        req.session.postId = req.params.id;
         if (!req.session.loggedIn) {
             res.render(`notLogged`);
         } else {
             const postData = await Post.findByPk(req.params.id, {
-                include:
+                include: [
                     {
                         model: User,
                         attributes: [`username`],
                     },
+                    {
+                        model: Comments,
+                        include: [
+                                {
+                                model: User,
+                                attributes: [`username`],
+                            },
+                        ]
+                    },
+                ]
             });
             const posts = postData.get({plain: true});
-            console.log(posts)
+            console.log(posts);
             res.render(`view`, { posts, loggedIn: req.session.loggedIn });
         };
     } catch (err) {
@@ -65,7 +76,12 @@ router.get(`/:id`, async (req,res) => {
 });
 
 router.get(`/newPost`, async (req,res) => {
-    res.render(`newPost`, {loggedIn: req.session.loggedIn});
+    try {
+        res.render(`newPost`, {loggedIn: req.session.loggedIn});
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
 

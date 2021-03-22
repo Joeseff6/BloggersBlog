@@ -1,6 +1,11 @@
 const router = require(`express`).Router();
-const { User, Post } = require(`../../models`);
-
+const { User, Post, Comments} = require(`../../models`);
+const date = new Date();
+const today = `${date.getMonth()+1}` 
++ `/` 
++ `${date.getDate()}`
++ `/` 
++ `${date.getFullYear()}`;
 
 router.post(`/`, async (req,res) => {
     try {
@@ -14,10 +19,7 @@ router.post(`/`, async (req,res) => {
             req.session.loggedIn = true;
             res.status(200).json(userData);
         });
-        console.log(req.session);
-
     } catch (err) {
-        console.log(err)
         res.status(500).json(err);
     }
 })
@@ -55,9 +57,7 @@ router.post('/login', async (req, res) => {
             .status(200)
             .json({ user: userData, message: 'You are now logged in!' });
         });
-        console.log(req.session);
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 });
@@ -76,26 +76,35 @@ router.post('/logout', (req, res) => {
 // Create new post
 router.post(`/newPost`, (req,res) => {
     try {
-        const date = new Date();
-        const posted_date = `${date.getMonth()+1}` 
-        + `/` 
-        + `${date.getDate()}`
-        + `/` 
-        + `${date.getFullYear()}`;
         const postData = Post.create({
             title: req.body.title,
             text: req.body.text,
-            posted_date: posted_date,
+            posted_date: today,
             user_id: req.session.userId
         })
-    
         res.status(200).json(postData);
     } catch (err) {
-        console.log(err);
+        console.log(err)
         res.status(500).json(err);
     }
-
 });
+
+// Create new comment
+router.post(`/newComment`, async (req,res) => {
+    try {
+        const commentData = await Comments.create({
+            date: today,
+            comment: req.body.comment,
+            user_id: req.session.userId,
+            post_id: req.session.postId,
+        });
+
+        res.status(200).json(commentData);
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err);
+    }
+})
 
 
 

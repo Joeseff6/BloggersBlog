@@ -34,7 +34,7 @@ body {
     color: black;
 }
 
-#postText, #title, .postText {
+#postText, #title, .postText, #commentText {
     border: solid 2px black;
     background-color: #d0ffaf;
 }
@@ -46,4 +46,9 @@ body {
 
 .navbar-toggler {
     background-color: #96F550;
+}
+
+#commentForm {
+    top:50px;
+    display: none;
 }

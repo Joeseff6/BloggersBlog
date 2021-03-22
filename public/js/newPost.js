@@ -1,4 +1,3 @@
-
 const createPost = async (event) => {
     event.preventDefault();
     const title = document.getElementById(`title`).value.trim()
