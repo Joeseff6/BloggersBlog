@@ -5,7 +5,7 @@ A CMS-styled blog site featuring a hub for techies to post comments for discussi
 
 ## Link to Application 
 
-_Insert Link Here_
+_https://bloggers-blog123.herokuapp.com/_
 ## Project Description
 
 The purpose of this project is to build a blog-site web application that uses both front and back-end logic, ORM, databasing, and front-end development. This application is truly a full-stack application as it incorporates client side interaction to perform http requests such that data is retrieved/written into a database. MVC (Model-View-Controller) is the paradigm that was used to make this project as evident in the file structure.
