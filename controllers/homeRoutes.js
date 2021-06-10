@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const { User, Post, Comments } = require(`../models`);
+const loggedIn = require(`../utils/loggedIn`);
+const signedOut = require(`../utils/signedOut`);
+
 
 router.get(`/`, async (req, res) => {
   res.render(`homepage`, {
@@ -15,11 +18,8 @@ router.get(`/newUser`, async (req, res) => {
   res.render(`newUser`);
 });
 
-router.get(`/posts`, async (req, res) => {
+router.get(`/posts`, loggedIn, async (req, res) => {
   try {
-    if (!req.session.loggedIn) {
-      res.render(`notLogged`);
-    } else {
       const postData = await Post.findAll({
         include: {
           model: User,
@@ -33,8 +33,7 @@ router.get(`/posts`, async (req, res) => {
         posts,
         loggedIn: req.session.loggedIn,
       });
-    }
-  } catch (err) {
+    } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
