@@ -1,13 +1,7 @@
 const router = require(`express`).Router();
-const { User, Post, Comments } = require(`../../models`);
-const date = new Date();
-const today =
-  `${date.getMonth() + 1}` +
-  `/` +
-  `${date.getDate()}` +
-  `/` +
-  `${date.getFullYear()}`;
+const { User } = require(`../../models`);
 
+  // New User
 router.post(`/`, async (req, res) => {
   try {
     const userData = await User.create({
@@ -33,9 +27,8 @@ router.post("/login", async (req, res) => {
         email: req.body.email,
       },
     });
-
+    console.log("hey");
     req.session.userId = userData.dataValues.id;
-
     if (!userData) {
       res
         .status(400)
@@ -44,16 +37,13 @@ router.post("/login", async (req, res) => {
         });
       return;
     }
-
     const validPassword = await userData.checkPassword(req.body.password);
-
     if (!validPassword) {
       res
         .status(400)
         .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
-
     req.session.save(() => {
       req.session.loggedIn = true;
       res
@@ -61,6 +51,7 @@ router.post("/login", async (req, res) => {
         .json({ user: userData, message: "You are now logged in!" });
     });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
@@ -76,37 +67,5 @@ router.post("/logout", (req, res) => {
   }
 });
 
-// Create new post
-router.post(`/newPost`, (req, res) => {
-  try {
-    const postData = Post.create({
-      title: req.body.title,
-      text: req.body.text,
-      posted_date: today,
-      user_id: req.session.userId,
-    });
-    res.status(200).json(postData);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-// Create new comment
-router.post(`/newComment`, async (req, res) => {
-  try {
-    const commentData = await Comments.create({
-      date: today,
-      comment: req.body.comment,
-      user_id: req.session.userId,
-      post_id: req.session.postId,
-    });
-
-    res.status(200).json(commentData);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
 
 module.exports = router;
