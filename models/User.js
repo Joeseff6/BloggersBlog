@@ -35,7 +35,7 @@ User.init(
         len: [8],
       },
     },
-    dateCreated: {
+    date_created: {
       type: DataTypes.DATEONLY,
       defaultValue: Sequelize.NOW,
     },
