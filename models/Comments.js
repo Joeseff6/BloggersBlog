@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require("sequelize");
+const { Model, DataTypes, Sequelize } = require("sequelize");
 const sequelize = require("../config/connection");
 const date = new Date();
 const today =
@@ -17,11 +17,6 @@ Comments.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-    },
-    date_created: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
-      defaultValue: today,
     },
     comment: {
       type: DataTypes.STRING,
