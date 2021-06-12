@@ -1,5 +1,12 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const date = new Date();
+const today =
+`${date.getMonth() + 1}` +
+`/` +
+`${date.getDate()}` +
+`/` +
+`${date.getFullYear()}`;
 
 class Comments extends Model {}
 
@@ -11,9 +18,10 @@ Comments.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    date: {
-      type: DataTypes.STRING,
+    date_created: {
+      type: DataTypes.DATEONLY,
       allowNull: false,
+      defaultValue: today,
     },
     comment: {
       type: DataTypes.STRING,
