@@ -9,7 +9,7 @@ commentBtn.addEventListener(`click`, () => {
 const postComment = (event) => {
     event.preventDefault();
     const comment = document.getElementById(`commentText`).value.trim();
-    const response = fetch(`/api/users/newComment`, {
+    const response = fetch(`/api/comments/`, {
         method: `POST`,
         body: JSON.stringify({ comment }),
         headers: { 'Content-Type': 'application/json' },
