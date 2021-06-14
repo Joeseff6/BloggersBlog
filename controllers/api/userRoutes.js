@@ -27,7 +27,6 @@ router.post("/login", async (req, res) => {
         email: req.body.email,
       },
     });
-    console.log("hey");
     req.session.userId = userData.dataValues.id;
     if (!userData) {
       res
