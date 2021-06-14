@@ -4,7 +4,7 @@ const loggedIn = require(`../utils/loggedIn`);
 const signedOut = require(`../utils/signedOut`);
 
 
-router.get(`/`, async (req, res) => {
+router.get(`/`, loggedIn, async (req, res) => {
   res.render(`homepage`, {
     loggedIn: req.session.loggedIn,
   });
@@ -39,7 +39,7 @@ router.get(`/posts`, signedOut, async (req, res) => {
   }
 });
 
-router.get(`/posts/:id`, async (req, res) => {
+router.get(`/posts/:id`, signedOut, async (req, res) => {
   try {
     req.session.postId = req.params.id;
     if (!req.session.loggedIn) {
@@ -72,7 +72,7 @@ router.get(`/posts/:id`, async (req, res) => {
   }
 });
 
-router.get(`/newPost`, async (req, res) => {
+router.get(`/newPost`, signedOut, async (req, res) => {
   try {
     res.render(`newPost`, { loggedIn: req.session.loggedIn });
   } catch (err) {
