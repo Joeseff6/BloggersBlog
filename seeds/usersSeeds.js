@@ -7,7 +7,14 @@ const usersSeed = [
     email: "email@email.com",
     password: "password",
     date_created: "1/1/2021",
-  }
+  },
+  {
+    id: 2,
+    username: "Foo",
+    email: "email2@email.com",
+    password: "password",
+    date_created: "2/1/2021",
+  },
 ];
 
 const seedUsers = async() => {
