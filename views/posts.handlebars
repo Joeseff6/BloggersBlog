@@ -20,7 +20,7 @@
             <div class="mb-1">
                 <div class="postHeader">
                     <h3 class="text-black postTitle">Title: {{post.title}}</h3>
-                    <p class="text-black mb-0">Posted by: {{post.user.username}} on {{post.posted_date}}</p>
+                    <p class="text-black mb-0">Posted by: {{post.user.username}} on {{post.createdAt}}</p>
                 </div>
                 <p class="text-black postText mb-0" style="text-align: left;">{{post.text}}</p>
                 <a class="btn" id="viewBtn" href="/posts/{{post.id}}">View Post</a>
