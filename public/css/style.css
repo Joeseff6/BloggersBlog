@@ -13,21 +13,12 @@ body {
     color: #96F550;
 }
 
-#newPostBtn {
-    position: relative;
-    top: 25px;
-}
 
 .box {
     background-color: #96F550;
     border: black 2px solid;
     border-radius: 15px;
     color: black;
-}
-
-#postbox, .postRow {
-    position: relative;
-    top: 50px;
 }
 
 .text-black {
@@ -37,6 +28,7 @@ body {
 #postText, #title, .postText, #commentText {
     border: solid 2px black;
     background-color: #d0ffaf;
+    padding: 5px 0px 5px 10px;
 }
 
 
@@ -52,3 +44,11 @@ body {
     top:50px;
     display: none;
 }
+
+.lowerPostBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px
+}
+
+/* @media and (max-width: ) */
