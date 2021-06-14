@@ -1,12 +1,5 @@
 const { Model, DataTypes, Sequelize } = require("sequelize");
 const sequelize = require("../config/connection");
-const date = new Date();
-const today =
-`${date.getMonth() + 1}` +
-`/` +
-`${date.getDate()}` +
-`/` +
-`${date.getFullYear()}`;
 
 class Comments extends Model {}
 

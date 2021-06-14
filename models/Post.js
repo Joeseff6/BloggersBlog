@@ -1,12 +1,5 @@
 const { Model, DataTypes } = require(`sequelize`);
 const sequelize = require(`../config/connection`);
-const date = new Date();
-const today =
-`${date.getMonth() + 1}` +
-`/` +
-`${date.getDate()}` +
-`/` +
-`${date.getFullYear()}`;
 
 class Post extends Model {}
 
