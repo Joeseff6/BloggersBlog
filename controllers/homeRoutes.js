@@ -18,7 +18,7 @@ router.get(`/newUser`, async (req, res) => {
   res.render(`newUser`);
 });
 
-router.get(`/posts`, loggedIn, async (req, res) => {
+router.get(`/posts`, signedOut, async (req, res) => {
   try {
       const postData = await Post.findAll({
         include: {
