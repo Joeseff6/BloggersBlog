@@ -1,5 +1,12 @@
 const { Model, DataTypes } = require(`sequelize`);
 const sequelize = require(`../config/connection`);
+const date = new Date();
+const today =
+`${date.getMonth() + 1}` +
+`/` +
+`${date.getDate()}` +
+`/` +
+`${date.getFullYear()}`;
 
 class Post extends Model {}
 
@@ -18,6 +25,10 @@ Post.init(
     text: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    date_created: {
+      type: DataTypes.STRING,
+      defaultValue: today,
     },
     user_id: {
       type: DataTypes.INTEGER,
