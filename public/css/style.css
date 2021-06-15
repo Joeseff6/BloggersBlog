@@ -51,4 +51,8 @@ body {
   right: 30px
 }
 
-/* @media and (max-width: ) */
+@media screen and (max-width: 900px) {
+  .lowerPostBtn {
+    display: none;
+  }
+}
