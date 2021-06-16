@@ -1,4 +1,4 @@
-<div class="row my-4">
+<div class="row mt-2">
   <div class="col d-flex justify-content-center">
     <header>
       <h1>Techie Posts Page</h1>
@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<div class="row my-4">
+<div class="row my-3">
   <div class="col d-flex justify-content-center">
     <a class="btn" id="newPostBtn" href="/newPost">New post</a>
   </div>
@@ -25,19 +25,19 @@
     <div class="row text-center postRow mb-3">
       <div class="col-sm-9 box m-auto">
         <div class="row">
-          <div class="mb-1">
+          <div class="col">
             <div class="postHeader">
               <h3 class="text-black postTitle">Title: {{post.title}}</h3>
-              <p class="text-black mb-0">Posted by:
+              <p class="text-black mb-1">Posted by:
                 {{post.user.username}}
                 on
                 {{post.date_created}}</p>
             </div>
             <p
-              class="text-black postText mb-0"
+              class="text-black postText mb-1"
               style="text-align: left;"
             >{{post.text}}</p>
-            <a class="btn" id="viewBtn" href="/posts/{{post.id}}">View Post</a>
+            <a class="btn mb-1" id="viewBtn" href="/posts/{{post.id}}">View Post</a>
           </div>
         </div>
       </div>
