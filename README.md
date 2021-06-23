@@ -41,11 +41,11 @@ Use the following command to copy the env example file so you can replace the va
 
 ## Screenshots
 
-![Blog Homepage (without login)](./Assets/Images/Capture.PNG)
+![Blog Homepage (without login)](./assets/Images/Capture.PNG)
 
-![Blog Homepage (with login and posts)](./Assets/Images/Capture2.PNG)
+![Blog Homepage (with login and posts)](./assets/Images/Capture2.PNG)
 
-![Individual post with a comment](./Assets/Images/Capture3.PNG)
+![Individual post with a comment](./assets/Images/Capture3.PNG)
 
 
 
