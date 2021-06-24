@@ -8,11 +8,28 @@ body {
 }
 
 #heading, .btn {
-    background-color: black;
     border: solid 2px #96F550;
     color: #96F550;
 }
 
+.viewBtn {
+  background-color: black;
+  border-radius: 15px;
+}
+
+.btn-danger {
+  color: black;
+  border-radius: 15px;
+}
+
+.btn-warning {
+  color: black;
+  border-radius: 15px;
+}
+
+.btn-warning:hover {
+  color: white;
+}
 
 .box {
     background-color: #96F550;
