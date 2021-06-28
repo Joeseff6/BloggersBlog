@@ -7,24 +7,22 @@ body {
     background-color: #393D3F;
 }
 
-#heading, .btn {
+#heading {
     border: solid 2px #96F550;
     color: #96F550;
+    background-color: black;
 }
 
-.viewBtn {
-  background-color: black;
-  border-radius: 15px;
-}
 
-.btn-danger {
+.btn-danger, .btn-warning {
   color: black;
   border-radius: 15px;
 }
 
-.btn-warning {
-  color: black;
+.btn-dark {
   border-radius: 15px;
+  border: solid 2px #96F550;
+  color: #96F550;
 }
 
 .btn-warning:hover {
