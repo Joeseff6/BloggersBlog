@@ -14,8 +14,14 @@ body {
 }
 
 
-.btn-danger, .btn-warning {
+.btn-danger {
   color: black;
+  border-radius: 15px;
+}
+
+.btn-warning {
+  background-color: #3d3d3d;
+  color: rgba(255, 255, 255, 0.856);
   border-radius: 15px;
 }
 
@@ -26,7 +32,7 @@ body {
 }
 
 .btn-warning:hover {
-  color: white;
+  color: black;
 }
 
 .box {
@@ -64,6 +70,19 @@ body {
   position: fixed;
   bottom: 30px;
   right: 30px
+}
+
+.modal-content {
+  background-color: black;
+  border: solid 2px #96F550;
+}
+
+.close {
+  background-color: #96F550;
+}
+
+.x {
+  color: black;
 }
 
 @media screen and (max-width: 900px) {
