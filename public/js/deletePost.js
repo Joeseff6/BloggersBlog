@@ -1,22 +1,25 @@
 const deletePost = async (event) => {
-  let id = event.target.dataset.id;
-  console.log("hey");
-  console.log(id);
-  // const response = await fetch(`/api/posts/:id`, {
-  //     method: `DELETE`,
-  //     body: JSON.stringify({ id }),
-  //     headers: { 'Content-Type': 'application/json' },
-  // })
-
-  // if (response.ok) {
-  //     document.location.replace('/dashboard/:id');
-  // }
+  let postInfo = {
+    id: event.target.dataset.id,
+  };
+  let response = await fetch("/api/posts/", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(postInfo),
+  });
+  const urlArr = window.location.pathname.split("/");
+  const dashboardId = urlArr[urlArr.length - 1];
+  if (response.ok) {
+    document.location.replace("/dashboard/" + dashboardId);
+  }
 };
 
 const setDataId = (event) => {
   let id = event.target.dataset.id;
-  document.getElementById(`deleteBtn`).setAttribute(`data-id`, id);
+  document.getElementById("deleteBtn").setAttribute("data-id", id);
 };
 
-document.querySelectorAll(`.deleteModalBtn`).forEach((button) => button.addEventListener(`click`, setDataId));
-document.getElementById(`deleteBtn`).addEventListener(`click`, deletePost);
+document.querySelectorAll(".deleteModalBtn").forEach((button) => button.addEventListener("click", setDataId));
+document.getElementById("deleteBtn").addEventListener("click", deletePost);
