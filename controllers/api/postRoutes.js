@@ -25,9 +25,13 @@ router.post(`/`, async (req, res) => {
 });
 
 // Delete post
-router.delete(`/:id`, async (req, res) => {
+router.delete(`/`, async (req, res) => {
   try {
-    await Post.destroy({id: req.params.id})
+    await Post.destroy({
+      where: {
+        id: req.body.id,
+      },
+    });
     res.status(200).json("Post deleted");
   } catch (err) {
     console.log(err);
