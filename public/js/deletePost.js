@@ -1,17 +1,22 @@
 const deletePost = async (event) => {
+  let id = event.target.dataset.id;
+  console.log("hey");
+  console.log(id);
   // const response = await fetch(`/api/posts/:id`, {
-  //     method: `POST`,
-  //     body: JSON.stringify({ title, text }),
+  //     method: `DELETE`,
+  //     body: JSON.stringify({ id }),
   //     headers: { 'Content-Type': 'application/json' },
   // })
 
   // if (response.ok) {
-  //     document.location.replace('/posts');
+  //     document.location.replace('/dashboard/:id');
   // }
-  console.log("hey")
-}
+};
 
-document.querySelectorAll(`.deleteBtn`).forEach(button => button.addEventListener(`click`, deletePost));
+const setDataId = (event) => {
+  let id = event.target.dataset.id;
+  document.getElementById(`deleteBtn`).setAttribute(`data-id`, id);
+};
 
-let deleteBtns = document.querySelectorAll(`.deleteBtn`)
-console.log(deleteBtns)
+document.querySelectorAll(`.deleteModalBtn`).forEach((button) => button.addEventListener(`click`, setDataId));
+document.getElementById(`deleteBtn`).addEventListener(`click`, deletePost);
