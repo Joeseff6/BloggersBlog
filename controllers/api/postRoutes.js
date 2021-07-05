@@ -39,5 +39,16 @@ router.delete(`/`, async (req, res) => {
   }
 });
 
+// Edit post
+router.put(`/`, async (req, res) => {
+  try {
+    res.status(200).json("Post deleted");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
 
 module.exports = router;
