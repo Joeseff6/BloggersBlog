@@ -12,7 +12,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger">Delete Post</button>
+        <button type="button" class="btn btn-danger" id="deleteBtn">Delete Post</button>
       </div>
     </div>
   </div>
@@ -43,8 +43,8 @@
               style="text-align: left;"
             >{{post.text}}</p>
             <a class="btn btn-dark mb-1 viewBtn" href="/posts/{{post.id}}">View Post</a>
-            <a class="btn btn-warning mb-1" id="editBtn" href="/posts/{{post.id}}">Edit Post</a>
-            <button class="btn btn-danger mb-1 deleteBtn" data-toggle="modal" data-target="#deleteModal" data-id={{post.id}}>Delete Post</button>
+            <a class="btn btn-warning mb-1" id="editBtn" href="/editPost/{{post.id}}">Edit Post</a>
+            <button class="btn btn-danger mb-1 deleteModalBtn" data-toggle="modal" data-target="#deleteModal" data-id={{post.id}}>Delete Post</button>
           </div>
         </div>
       </div>

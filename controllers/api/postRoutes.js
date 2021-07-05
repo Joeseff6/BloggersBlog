@@ -2,11 +2,11 @@ const router = require(`express`).Router();
 const { Post } = require(`../../models`);
 const date = new Date();
 const today =
-`${date.getMonth() + 1}` +
-`/` +
-`${date.getDate()}` +
-`/` +
-`${date.getFullYear()}`;
+  `${date.getMonth() + 1}` +
+  `/` +
+  `${date.getDate()}` +
+  `/` +
+  `${date.getFullYear()}`;
 
 // Create new post
 router.post(`/`, async (req, res) => {
@@ -25,9 +25,13 @@ router.post(`/`, async (req, res) => {
 });
 
 // Delete post
-router.delete(`/:id`, async (req, res) => {
+router.delete(`/`, async (req, res) => {
   try {
-    await Post.destroy({id: req.params.id})
+    await Post.destroy({
+      where: {
+        id: req.body.id,
+      },
+    });
     res.status(200).json("Post deleted");
   } catch (err) {
     console.log(err);
@@ -35,5 +39,24 @@ router.delete(`/:id`, async (req, res) => {
   }
 });
 
+// Edit post
+router.put(`/:id`, async (req, res) => {
+  try {
+    const editedPost = await Post.update(
+      {
+        text: req.body.newText,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.status(200).json(editedPost);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
