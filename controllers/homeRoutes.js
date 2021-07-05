@@ -66,7 +66,11 @@ router.get(`/posts/:id`, signedOut, async (req, res) => {
     const posts = postData.get({ plain: true });
     console.log(posts);
     console.log(posts.comments);
-    res.render(`view`, { posts, loggedIn: req.session.loggedIn });
+    const userData = await User.findByPk(req.session.userId, {
+      attributes: [`id`],
+    });
+    const user = userData.get({ plain: true });
+    res.render(`view`, { posts, user, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

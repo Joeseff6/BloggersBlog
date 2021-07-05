@@ -7,15 +7,12 @@ body {
     background-color: #393D3F;
 }
 
-#heading, .btn {
+#heading {
     border: solid 2px #96F550;
     color: #96F550;
+    background-color: black;
 }
 
-.viewBtn {
-  background-color: black;
-  border-radius: 15px;
-}
 
 .btn-danger {
   color: black;
@@ -23,12 +20,19 @@ body {
 }
 
 .btn-warning {
-  color: black;
+  background-color: #3d3d3d;
+  color: rgba(255, 255, 255, 0.856);
   border-radius: 15px;
 }
 
+.btn-dark {
+  border-radius: 15px;
+  border: solid 2px #96F550;
+  color: #96F550;
+}
+
 .btn-warning:hover {
-  color: white;
+  color: black;
 }
 
 .box {
@@ -66,6 +70,19 @@ body {
   position: fixed;
   bottom: 30px;
   right: 30px
+}
+
+.modal-content {
+  background-color: black;
+  border: solid 2px #96F550;
+}
+
+.close {
+  background-color: #96F550;
+}
+
+.x {
+  color: black;
 }
 
 @media screen and (max-width: 900px) {
