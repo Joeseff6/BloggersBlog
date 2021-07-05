@@ -109,4 +109,21 @@ router.get(`/newPost`, signedOut, async (req, res) => {
   }
 });
 
+router.get(`/editPost/:id`, signedOut, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.userId, {
+      attributes: [`id`],
+    });
+    const user = userData.get({ plain: true });
+    const postData = await Post.findByPk(req.params.id);
+    const post = postData.get({ plain: true });
+    console.log(post)
+    console.log(user)
+    res.render(`editPost`, { user, post, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
