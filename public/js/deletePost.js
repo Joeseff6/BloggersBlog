@@ -9,10 +9,8 @@ const deletePost = async (event) => {
     },
     body: JSON.stringify(postInfo),
   });
-  const urlArr = window.location.pathname.split("/");
-  const dashboardId = urlArr[urlArr.length - 1];
   if (response.ok) {
-    document.location.replace("/dashboard/" + dashboardId);
+    document.location.reload();
   }
 };
 
