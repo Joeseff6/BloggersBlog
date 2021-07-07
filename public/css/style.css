@@ -85,6 +85,10 @@ body {
   color: black;
 }
 
+#editForm, #postForm {
+  margin-bottom: 8px;
+}
+
 @media screen and (max-width: 900px) {
   .lowerPostBtn {
     display: none;

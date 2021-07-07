@@ -1,16 +1,16 @@
 <div class="row text-center my-3">
-  <div class="col-sm-9 box m-auto">
+  <div class="col-sm-6 box m-auto">
     <div class="row">
       <div class="mb-1">
         <div class="postHeader">
-          <h3 class="text-black text-center postTitle">Title: {{posts.title}}</h3>
-          <p class="text-black mb-0">Posted by:
+          <h3 class="text-black text-center postTitle mt-2">Title: {{posts.title}}</h3>
+          <h4 class="text-black mb-1">Posted by:
             {{posts.user.username}}
             on
-            {{posts.date_created}}</p>
+            {{posts.date_created}}</h4>
         </div>
         <p
-          class="text-black postText mb-0"
+          class="text-black postText mb-1"
           style="text-align: left;"
         >{{posts.text}}</p>
         <a class="btn btn-dark" id="commentBtn" href="#">Comment</a>
@@ -22,17 +22,17 @@
 {{#if posts.comments}}
   {{#each posts.comments as |comment|}}
     <div class="row mb-3">
-      <div class="col-sm-9 box m-auto">
+      <div class="col-sm-6 box m-auto">
         <div class="row">
           <div class="mb-1">
             <div class="postHeader">
-              <p class="text-black mb-0">Posted by:
+              <h4 class="text-black my-2 text-center">Posted by:
                 {{comment.user.username}}
                 on
-                {{comment.date_created}}</p>
+                {{comment.date_created}}</h4>
             </div>
             <p
-              class="text-black postText mb-0"
+              class="text-black postText mb-1"
               style="text-align: left;"
             >{{comment.comment}}</p>
           </div>
@@ -43,10 +43,10 @@
 {{/if}}
 
 <div class="row position-relative text-center" id="commentForm">
-  <div class="col-sm-9 box m-auto">
+  <div class="col-sm-6 box m-auto">
     <div class="row">
-      <div class="mb-1">
-        <form id="postForm">
+      <div>
+        <form id="postForm" class="mt-2">
           <textarea
             class="form-control my-1"
             id="commentText"
