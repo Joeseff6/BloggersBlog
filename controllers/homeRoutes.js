@@ -32,7 +32,6 @@ router.get(`/posts`, signedOut, async (req, res) => {
       attributes: [`id`],
     });
     const user = userData.get({ plain: true });
-    console.log(posts);
     res.render(`posts`, {
       posts,
       user,
@@ -64,8 +63,6 @@ router.get(`/posts/:id`, signedOut, async (req, res) => {
       ],
     });
     const posts = postData.get({ plain: true });
-    console.log(posts);
-    console.log(posts.comments);
     const userData = await User.findByPk(req.session.userId, {
       attributes: [`id`],
     });
@@ -88,7 +85,6 @@ router.get(`/dashboard/:id`, signedOut, async (req, res) => {
       ],
     });
     const user = userData.get({ plain: true });
-    console.log(user);
     res.render(`dashboard`, { user, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
@@ -117,8 +113,6 @@ router.get(`/editPost/:id`, signedOut, async (req, res) => {
     const user = userData.get({ plain: true });
     const postData = await Post.findByPk(req.params.id);
     const post = postData.get({ plain: true });
-    console.log(post)
-    console.log(user)
     res.render(`editPost`, { user, post, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
