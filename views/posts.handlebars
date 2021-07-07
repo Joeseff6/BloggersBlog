@@ -23,15 +23,15 @@
 {{#if posts}}
   {{#each posts as |post|}}
     <div class="row text-center postRow mb-3">
-      <div class="col-sm-9 box m-auto">
+      <div class="col-sm-6 box m-auto">
         <div class="row">
           <div class="col">
             <div class="postHeader">
               <h3 class="text-black postTitle">{{post.title}}</h3>
-              <p class="text-black mb-1">Posted by:
+              <h4 class="text-black mb-2">Posted by:
                 {{post.user.username}}
                 on
-                {{post.date_created}}</p>
+                {{post.date_created}}</h4>
             </div>
             <p
               class="text-black postText mb-1"
