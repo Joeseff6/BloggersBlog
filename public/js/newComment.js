@@ -1,8 +1,9 @@
 const commentBtn = document.getElementById(`commentBtn`);
+const commentBox = document.getElementById(`commentBox`);
 const commentForm = document.getElementById(`commentForm`);
 
 commentBtn.addEventListener(`click`, () => {
-  commentForm.style.display = "block";
+  commentBox.style.display = "block";
 });
 
 const postComment = async (event) => {
